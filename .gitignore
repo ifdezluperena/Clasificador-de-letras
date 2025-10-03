@@ -1,0 +1,8 @@
+# Ignorar carpetas de datos y modelos pesados
+data/git 
+model/
+
+# Ignorar archivos temporales
+__pycache__/
+*.pyc
+*.pkl
