@@ -4,8 +4,8 @@ from PIL import Image
 import tensorflow as tf
 
 # Rutas
-ZIP_PATH = "C:/Users/ivanf/OneDrive/Escritorio/Data Science/The Bridge/Data Ivan/Proyectos/lector_ML_git/src/streamlit_data/LETTER_IMG_TEST-20251003T150011Z-1-001.zip"
-MODEL_PATH = "C:/Users/ivanf/OneDrive/Escritorio/Data Science/The Bridge/Data Ivan/Proyectos/lector_ML_git/src/notebooks/model_80_sigmoid_softmax_relu_32_128_callback.keras"
+ZIP_PATH = "src/streamlit_data/LETTER_IMG_TEST-20251003T150011Z-1-001.zip"
+MODEL_PATH = "src/notebooks/model_80_sigmoid_softmax_relu_32_128_callback.keras"
 
 
 
