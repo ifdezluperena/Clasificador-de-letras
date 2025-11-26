@@ -1,8 +1,7 @@
 import streamlit as st
 import zipfile, io, numpy as np
 from PIL import Image
-import tflite_runtime.interpreter as tflite
-
+import tensorflow as tf
 
 # Rutas
 ZIP_PATH = "C:/Users/ivanf/OneDrive/Escritorio/Data Science/The Bridge/Data Ivan/Proyectos/lector_ML_git/src/streamlit_data/LETTER_IMG_TEST-20251003T150011Z-1-001.zip"
@@ -16,10 +15,7 @@ labels = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 
 # Cargar modelo una vez
 @st.cache_resource
 def load_model():
-    interpreter = tflite.Interpreter(model_path=MODEL_PATH)
-    interpreter.allocate_tensors()
-    return interpreter
-
+    return tf.keras.models.load_model(MODEL_PATH)
 
 # Cargar imágenes del zip
 @st.cache_resource
@@ -55,12 +51,7 @@ if selected:
     x = preprocess(img)
 
     # Predicción
-    input_details = model.get_input_details()
-    output_details = model.get_output_details()
-
-    model.set_tensor(input_details[0]['index'], x.astype(np.float32))
-    model.invoke()
-    preds = model.get_tensor(output_details[0]['index'])
+    preds = model.predict(x)
     pred_idx = np.argmax(preds)
     pred_label = labels[pred_idx]
 
