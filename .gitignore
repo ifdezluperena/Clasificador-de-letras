@@ -1,6 +1,6 @@
 # Ignorar carpetas de datos y modelos pesados
-data/git 
-model/
+src/data/git 
+src/model/
 
 # Ignorar archivos temporales
 __pycache__/
